@@ -1,0 +1,6 @@
+
+1.1 What is the shortest possible conversation, in number of dialogue turns?
+    just 1 turn, "play MJ" --> "OK, play MJ"
+
+1.2 What is the longest possible conversation?
+    2 turn, "play" --> "play who" and "MJ" --> "oK, play MJ"

@@ -1,0 +1,26 @@
+perform an action: make a reservation
+
+input:hi
+output:hi, what can i do for you
+
+input: reservation
+output: sure. what restaurant do you want to reserv?
+
+input: buffet
+output: what evening will you be joining us on 
+
+input: tonight
+outpit: what time would you like the reservation for
+
+input: 7
+output: how many people will be in your party
+
+input: 4
+output: please give me your name
+
+input: nina
+output: ok nina so reassure that you wanna make a reservation for four people tonight at 7pm 
+
+input: yes
+output: great. see you tonight
+

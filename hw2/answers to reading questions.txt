@@ -1,0 +1,16 @@
+Answers to the reading:
+
+2.1 What are different ways people adapt their speech to different audiences?
+    If the audience is who they need to talking for, the people who give speech designs what they say to be understood by a class of people and not by anyone individual. For example, the people who give a speech on Talk Show concern about what they want to deliver to the audience in front of TV.
+
+    If the audience is who they talk to, the people who give speech designs what they say for the individual people they are speaking to, like the voice message we leave to a particular person.
+
+    If the audience is who they talk with, the people who give speech designs what they say in collaboration with other people, and the other does the same. It about the experience and interaction between two people during their talking. 
+
+
+2.2 What are different ways adults and children achieve grounding in the communication?
+    The same preference for adults and children is that both of them prefer self-repairs to other-repairs, and self-initiated repairs to other-initiated repairs. While children appear to make or initiate other-repairs only when they are older.
+
+
+2.3 How could you incorporate some of the knowledge into your chatbots from the part 1 of the homework?
+    I think my chatbots need to baby talk friendly. For example, I need avoid detracting phonologically difficult words that user said, like "f" and "th". That remainds me of a video (link: https://www.youtube.com/watch?v=r5p0gqCIEa8&list=RDr5p0gqCIEa8#t=16) that a cute kid asks Alexa to play his favorate song; however, Alexa misunderstands and tries to offer something quite different. It's so funny but also educated me that if my chatbots can understand children's commands, there's can easily understand adults' commands. 

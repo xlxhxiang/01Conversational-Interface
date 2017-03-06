@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<!-- CSS Styles -->
+<style>
+  .speech {border: 1px solid #DDD; width: 300px; padding: 0; margin: 0}
+  .speech input {border: 0; width: 240px; display: inline-block; height: 30px;}
+  .speech img {float: right; width: 40px }
+</style>
+ 
+ 
+<!-- HTML5 Speech Recognition API -->
+<!-- About: This script implements a simple Finate State Machine  -->
+<!-- Author: Maxim Makatchev -->
+
+<script>
+  var state = "initial"
+
+  function startDictation() {
+ 
+    if (window.hasOwnProperty('webkitSpeechRecognition')) {
+ 
+      var recognition = new webkitSpeechRecognition();
+ 
+      recognition.continuous = false;
+      recognition.interimResults = false;
+ 
+      recognition.lang = "en-US";
+      recognition.start();
+ 
+      recognition.onresult = function(e) {
+        document.getElementById('transcript').value
+                                 = e.results[0][0].transcript;
+        var user_said = e.results[0][0].transcript;
+        recognition.stop();
+
+        var bot_response = decide_response(user_said)
+        speak(bot_response)
+        //`document.getElementById('labnol').submit();
+      };
+ 
+      recognition.onerror = function(e) {
+        recognition.stop();
+      }
+ 
+    }
+  }
+
+  /* decide what to say.
+   * input: transcription of what user said
+   * output: what bot should say
+   */
+  function decide_response(user_said) {
+    var response;
+    if (user_said.toLowerCase().includes("reservation") && user_said.toLowerCase().includes("buffet") && user_said.toLowerCase().includes("tonight 7pm") && user_said.toLowerCase().includes("4 people") &&user_said.toLowerCase().includes("nina") && state === "initial") {
+      response = "ok, nina, you wanna make a reservation for four people tonight at 7pm right?";
+    } else if (user_said.toLowerCase().includes("reservation") && state === "initial") {
+      response = "what restaurant do you want to reserve?";
+      state = "reserve";
+    } else if (user_said.toLowerCase().includes("buffet") && state === "reserve") {
+      response = "what evening will you be joining us on?";
+      state = "buffet";
+    } else if (user_said.toLowerCase().includes("tonight 7pm") && state === "buffet") {
+      response = "how many people will be in your party?";
+      state = "time";
+    }else if (user_said.toLowerCase().includes("4") && state === "time") {
+      response = "please give me your name";
+      state = "people";
+    }else if (user_said.toLowerCase().includes("nina") && state === "people") {
+      response = "ok. nina. so reassure that you wanna make a reservation for four people tonight at 7pm right?";
+      state = "initial";
+    }else if (user_said.toLowerCase().includes("yes") && state === "initial") {
+      response = "great! see you tonight.";
+      state = "initial";
+    } else if (user_said.toLowerCase().includes("no") && state === "initial") {
+      response = "what part do you want to correct";
+      state = "correct";
+    }else if (user_said.toLowerCase().includes("people") && state === "correct") {
+      response = "ok, change to 2 people";
+      state = "initial";
+    }else if (user_said.toLowerCase().includes("time") && state === "correct") {
+      response = "ok, change to tonight 8pmß";
+      state = "initial";
+    }else {
+      response = "sorry, i don't get it, can you repeat?";
+    }
+    return response;
+  }
+
+  /* 
+   *speak out some text 
+   */
+  function speak(text, callback) {
+    var u = new SpeechSynthesisUtterance();
+    u.text = text;
+    u.lang = 'en-US';
+ 
+    u.onend = function () {
+        if (callback) {
+            callback();
+        }
+    };
+ 
+    u.onerror = function (e) {
+        if (callback) {
+            callback(e);
+        }
+    };
+ 
+    speechSynthesis.speak(u);
+  }
+
+</script>
+
+</head>
+
+<body>
+
+<!-- Search Form -->
+<form id="labnol" method="get" action="https://www.google.com/search">
+  <div class="speech">
+    <input type="text" name="q" id="transcript" placeholder="Speak" />
+    <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
+  </div>
+</form>
+
+
+</body>
+
+</html>
