@@ -56,8 +56,8 @@
   function decide_response(user_said) {
     var response;
     var play_re1 = /buy tickets for\s(.+)/i;  // creating a regular expression
-    var play_re2 = /buy ticket for\s(.+)\sand\s(.+)\s/i;  // creating a regular expression
-    var play_re3 = /buy ticket for\s(.+)\sby\s(.+)\s/i;  // creating a regular expression
+    var play_re2 = /buy ticket for\s(.+)\sand\s(.+)/i;  // creating a regular expression
+    var play_re3 = /buy ticket for\s(.+)\sby\s(.+)/i;  // creating a regular expression
     var play_parse_array1 = user_said.match(play_re1) // parsing the input string with the regular expression
     var play_parse_array2 = user_said.match(play_re2) // parsing the input string with the regular expression
    var play_parse_array3 = user_said.match(play_re3) // parsing the input string with the regular expression
