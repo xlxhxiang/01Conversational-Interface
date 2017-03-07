@@ -68,9 +68,9 @@
     if (play_parse_array1 && state === "initial") {
       response = "Gocha. Buy tickets for" + play_parse_array1[1];
      } else if (play_parse_array2 && state === "initial") {
-      response = "Gocha. But ticket for"+play_parse_array2[1]+"after that buy movie ticket for"+play_parse_array2[2];
+      response = "Gocha. Buy ticket for"+play_parse_array2[1]+"after that buy movie ticket for"+play_parse_array2[2];
     }else if(play_parse_array3 && state === "initial"){
-response = "Gocha. Buy ticket for" + play_parse_array3[1]+by+play_parse_array3[2];
+response = "Gocha. Buy ticket for" + play_parse_array3[1]+"by"+play_parse_array3[2];
     }else if (user_said.toLowerCase().includes("bye")) {
       response = "good bye to you!";
       state = "initial"
