@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Giggles online version</title>
+    <!--[if IE]><script type="text/javascript" src="excanvas.js"></script><![endif]-->
+    <style type="text/css">
+    body{
+      background-image:url("bgimage.jpg");
+      background-repeat: no-repeat;
+      background-size: 1280px, 960px;
+    }
+    </style>
+  </head>
+  <body class="wholebody">
+    <div id="canvasDiv"></div>
+
+    <!-- Search Form -->
+    <form id="labnol" method="get" action="https://www.google.com/search">
+      <div class="speech">
+        <table>
+          <tr>
+            <td>
+              <input type="text" name="q" id="transcript" placeholder="Tickle me, talk to me and laugh with me" />
+            </td>
+            <td>
+              <img onclick="startDictation()" src="//i.imgur.com/cHidSVu.gif" />
+            </td>
+          </tr>
+        </table>
+      </div>
+    </form>
+
+
+    <script type="text/javascript" src="nonverbal.js"></script>
+    <script type="text/javascript" src="verbal.js"></script>
+    <script type="text/javascript">
+    	prepareCanvas(document.getElementById("canvasDiv"), 490, 220);
+		  document.getElementById("canvasDiv").onmousedown = function() { 
+			 jump(); 
+      }
+    </script>
+  </body>
+</html>
